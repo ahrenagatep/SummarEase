@@ -1,7 +1,7 @@
 {
     "manifest_version": 3,
     "name": "SummarEase",
-    "description": "Summarize long pages of content into concise text",
+    "description": "Summarize long web pages using the Summarization API.",
     "version": "1.0",
     "action": {
         "default_popup": "popup/popup.html"
