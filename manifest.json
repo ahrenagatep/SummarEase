@@ -1,11 +1,12 @@
 {
     "manifest_version": 3,
-    "name": "SummarEase",
+    "name": "SummarEase: summarize articles with ease",
     "description": "Summarize long web pages using the Summarization API.",
     "version": "1.0",
-    "action": {
-        "default_popup": "popup/popup.html"
-    },
+    "permissions": [
+        "storage",
+        "sidePanel"
+    ],
     "icons": {
         "16": "images/icon-16.png",
         "32": "images/icon-32.png",
@@ -16,7 +17,10 @@
         "service_worker": "background.js",
         "type": "module"
     },
-    "permissions": [
-        "storage"
-    ]
+    "action": {
+        "default_title": "Click to open panel"
+    },
+    "side_panel": {
+        "default_path": "popup/popup.html"
+    }
 }
