@@ -5,14 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SummarEase</title>
     <link rel="stylesheet" href="bulma.min.css"/>
+    <style>
+        #outputArea {
+            width: 100%;
+            height: 300px;
+            resize: none;
+        }
+    </style>
 </head>
 <body>
     <div class="container m-3">
         <h1 class="title">SummarEase</h1>
-        <!-- <button class="summarize-btn">Summarize</button>
-        <div class="summary-result"></div>
-        <script class="popup.js"></script> -->
-
         <div class="field">
             <label class="label">Status</label>
             <span class="tag is-success">Summarizing...</span>
@@ -20,11 +23,11 @@
         </div>
     </div>
     <div class="container m-3">
-        <button class="button is-success">Summarize!</button>
-        <!-- <script src = "popup.js"></script> -->
+        <button id="summarizeButton"class="button is-success">Summarize!</button>
+        <script src = "popup.js"></script>
     </div>
-    <div class="container m-3">
-        <textarea id = "outputArea m-3" rows="10" cols="40" readonly></textarea>
+    <div class="container">
+        <textarea id = "outputArea" readonly></textarea>
     </div>
 </body>
 </html>
