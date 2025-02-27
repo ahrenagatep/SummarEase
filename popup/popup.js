@@ -11,7 +11,7 @@ document.querySelector('.button.is-success').addEventListener("click", () => {
                 // response.content <-- content
                 document.getElementById("outputArea").value = response.content;
             } else {
-                document.getElementById("outputArea").value = "No content found. Please use a valid website.";
+                document.getElementById("outputArea").value = "No content found. Please use a valid website or refresh the page and try again.";
             }
         });
     });
