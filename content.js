@@ -7,7 +7,14 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
         paragraphs.forEach(paragraph => {
             articleText += paragraph.innerText + '\n';
         });
+        
+        const title = document.querySelector('h1') ? document.querySelector('h1').innerText : '';
 
-        sendResponse({ content: articleText });
+        const focusedContent = title + '\n' + articleText.substring(0, 1000) + '\n';
+
+        sendResponse({ content: focusedContent });
     }
 });
+
+// 1000 words + bullet points gives an estimated 21,428 requests per month
+// keeps us in budget of 18$ a month

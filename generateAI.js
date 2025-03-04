@@ -1,24 +1,19 @@
-const { GoogleGenerativeAI } = require("@google/generative-ai");
+import OpenAI from "openai";
 
-async function generateContent() {
-    const apiKey = process.env.GEMINI_API_KEY;
+const openai = new OpenAI({
+  apiKey: "REDACTED", // TURN THIS INTO A ENVIRONMENT VARIABLE !!!!
+});
 
-    if (!apiKey) {
-        console.error("API key is missing. Please set the GOOGLE_API_KEY environment variable.");
-        return;
-    }
+const completion = openai.chat.completions.create({
+  model: "gpt-3.5-turbo",
+  store: true,
+  messages: [
+    {"role": "user", "content": "write a haiku about ai"},
+  ],
+});
 
-    const genAI = new GoogleGenerativeAI("YOUR_API_KEY");
-    const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
+completion.then((result) => console.log(result.choices[0].message));
 
-    const prompt = "Explain how AI works";
-
-    try {
-        const result = await model.generateContent(prompt);
-        console.log(result.response.text());
-    } catch (error) {
-        console.error("Error generating content:", error);
-    }
-}
-
-generateContent();
+// use bullet points to minimize token usage
+// 1000 words + bullet points gives an estimated 21,428 requests per month
+// keeps us in budget of 18$ a month
